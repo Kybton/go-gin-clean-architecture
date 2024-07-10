@@ -8,13 +8,21 @@ import (
 
 type (
 	configurations struct {
-		Server server `toml:"server"`
+		Server     server `toml:"server"`
+		CorsConfig cors   `toml:"cors"`
 	}
 
 	server struct {
 		Host string `toml:"host" validate:"required"`
 		Port string `toml:"port" validate:"required"`
 		Mode string `toml:"mode"`
+	}
+
+	cors struct {
+		AllowOrigins     []string `toml:"allow_origins"`
+		AllowMethods     []string `toml:"allow_methods"`
+		AllowHeaders     []string `toml:"allow_headers"`
+		AllowCredentials bool     `toml:"allow_credentials"`
 	}
 )
 

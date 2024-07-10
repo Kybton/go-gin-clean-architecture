@@ -2,3 +2,9 @@
 host = "0.0.0.0"
 port = "8000"
 mode = "debug"
+
+[cors]
+allow_origins = ["*"]
+allow_methods = ["GET", "PUT", "POST", "DELETE"]
+allow_headers = ["Origin", "Content-Length", "Content-Type"]
+allow_credentials = true
