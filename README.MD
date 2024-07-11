@@ -16,10 +16,10 @@ I am planning to make a CLI wrapper for this project where you can create a new 
 
 ### TODOs
 
-- [ ] #1
-- [ ] #2
-- [ ] #3
-- [ ] #4
+- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/1
+- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/2
+- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/3
+- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/4
 
 ## API Documentation
 
