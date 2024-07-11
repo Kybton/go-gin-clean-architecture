@@ -24,5 +24,9 @@ func NewPersonRouter(deps PersonRouterDeps) PersonRouter {
 
 func (r *PersonRouter) AddRoutes(rg *gin.RouterGroup) {
 	person := rg.Group("/person")
+
+	person.GET("/", r.personController.Index)
+	person.GET("/:id", r.personController.GetById)
 	person.POST("/", r.personController.Create)
+	person.DELETE("/:id", r.personController.Delete)
 }
