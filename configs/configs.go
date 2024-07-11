@@ -8,8 +8,9 @@ import (
 
 type (
 	configurations struct {
-		Server     server `toml:"server"`
-		CorsConfig cors   `toml:"cors"`
+		Server     server             `toml:"server"`
+		CorsConfig cors               `toml:"cors"`
+		RDB        relationalDatabase `toml:"database"`
 	}
 
 	server struct {
@@ -23,6 +24,15 @@ type (
 		AllowMethods     []string `toml:"allow_methods"`
 		AllowHeaders     []string `toml:"allow_headers"`
 		AllowCredentials bool     `toml:"allow_credentials"`
+	}
+
+	relationalDatabase struct {
+		Dialect  string `toml:"dialect"`
+		Host     string `toml:"host"`
+		Port     string `toml:"port"`
+		Username string `toml:"username"`
+		Password string `toml:"password"`
+		Database string `toml:"database"`
 	}
 )
 

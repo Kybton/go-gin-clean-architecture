@@ -10,6 +10,7 @@ import (
 	"github.com/kybton/go-gin-clean-architecture/configs"
 	"github.com/kybton/go-gin-clean-architecture/src/app/handlers"
 	"github.com/kybton/go-gin-clean-architecture/src/app/middlewares"
+	personRouterV1 "github.com/kybton/go-gin-clean-architecture/src/app/modules/person/routers/v1"
 	"github.com/kybton/go-gin-clean-architecture/src/app/routers"
 	"go.uber.org/dig"
 )
@@ -20,7 +21,8 @@ type Server struct {
 	router *gin.Engine
 
 	// Define every routes for the router engine here
-	RootRouter routers.RootRouter
+	RootRouter   routers.RootRouter
+	PersonRouter personRouterV1.PersonRouter
 }
 
 // Struct to hold the dependencies for the server which will later be used to inject.
@@ -28,7 +30,8 @@ type ServerDeps struct {
 	dig.In
 
 	// Dependencies for the server
-	RootRouter routers.RootRouter `name:"RootRouter"`
+	RootRouter   routers.RootRouter          `name:"RootRouter"`
+	PersonRouter personRouterV1.PersonRouter `name:"PersonRouter"`
 }
 
 func NewServer(deps ServerDeps) {
@@ -51,8 +54,9 @@ func NewServer(deps ServerDeps) {
 	gin.DefaultWriter = io.MultiWriter(file, os.Stdout)
 
 	server := Server{
-		router:     gin.Default(),
-		RootRouter: deps.RootRouter,
+		router:       gin.Default(),
+		RootRouter:   deps.RootRouter,
+		PersonRouter: deps.PersonRouter,
 	}
 
 	server.router.ForwardedByClientIP = true
@@ -65,6 +69,9 @@ func NewServer(deps ServerDeps) {
 func (s *Server) attatchRoutes() {
 	rootIndex := s.router.Group("/")
 	s.RootRouter.AddRoutes(rootIndex)
+
+	v1 := s.router.Group("/v1")
+	s.PersonRouter.AddRoutes(v1)
 }
 
 // Method that holds the steps which is necessary to run the server.
