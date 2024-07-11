@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -26,21 +27,30 @@ func NewPersonController(deps PersonContollerDeps) PersonContoller {
 }
 
 func (ctrl *PersonContoller) Index(c *gin.Context) {
-
+	// TODO
 }
 
 func (ctrl *PersonContoller) GetById(c *gin.Context) {
-
+	// TODO
 }
 
 func (ctrl *PersonContoller) Create(c *gin.Context) {
-	person := ctrl.personService.Create(&models.Person{
+	person, err := ctrl.personService.Create(&models.Person{
 		FirstName: "First Name",
 		LastName:  "LastName",
 	})
+
+	if err != nil {
+		log.Fatal(err)
+		// TODO: return error response with base response dto
+	}
 
 	c.JSON(
 		http.StatusOK,
 		person,
 	)
+}
+
+func (ctrl *PersonContoller) Delete(c *gin.Context) {
+	// TODO
 }

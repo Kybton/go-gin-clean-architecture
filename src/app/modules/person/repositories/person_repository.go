@@ -9,7 +9,7 @@ import (
 )
 
 type PersonRepsoitory struct {
-	DB *gorm.DB
+	db *gorm.DB
 }
 
 type PersonRepositoryDeps struct {
@@ -20,12 +20,12 @@ type PersonRepositoryDeps struct {
 
 func NewPersonRepository(deps PersonRepositoryDeps) PersonRepsoitory {
 	return PersonRepsoitory{
-		DB: deps.DB,
+		db: deps.DB,
 	}
 }
 
-func (r *PersonRepsoitory) Create(person *personModels.Person) (*personModels.Person, error) {
-	result := r.DB.Create(person)
+func (pr *PersonRepsoitory) Create(person *personModels.Person) (*personModels.Person, error) {
+	result := pr.db.Create(person)
 
 	if result.Error != nil {
 		log.Fatal(result.Error)

@@ -9,7 +9,7 @@ import (
 )
 
 type PersonService struct {
-	PersonRepository repositories.PersonRepsoitory
+	personRepository repositories.PersonRepsoitory
 }
 
 type PersonServiceDeps struct {
@@ -20,16 +20,29 @@ type PersonServiceDeps struct {
 
 func NewPersonService(deps PersonServiceDeps) PersonService {
 	return PersonService{
-		PersonRepository: deps.PersonRepository,
+		personRepository: deps.PersonRepository,
 	}
 }
 
-func (pr *PersonService) Create(person *models.Person) *models.Person {
-	_, err := pr.PersonRepository.Create(person)
+func (ps *PersonService) List() {
+
+}
+
+func (ps *PersonService) GetById() {
+
+}
+
+func (ps *PersonService) Create(person *models.Person) (*models.Person, error) {
+	_, err := ps.personRepository.Create(person)
 
 	if err != nil {
 		log.Fatal("Error occured")
+		return person, err
 	}
 
-	return person
+	return person, nil
+}
+
+func (ps *PersonService) Delete() {
+
 }

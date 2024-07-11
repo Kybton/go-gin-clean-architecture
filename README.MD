@@ -4,7 +4,7 @@ This is the example clean architecture written in GoLang using [Gin](https://gin
 
 ### Why? Because DRY
 
-With new microservices being created, having to create the boilerplate codes before implementating the actual business logics is time and energy consuming. So, I decided to create a boilerplate codes that I can reuse because DRY.
+With new microservices being created, having to create the boilerplate codes before implementating the actual business logics is time and energy consuming. So, I decided to create a boilerplate codes that I can reuse and thought to myself why not make it public. So, it is here.
 
 ### Future Plan
 
@@ -16,10 +16,10 @@ I am planning to make a CLI wrapper for this project where you can create a new 
 
 ### TODOs
 
-- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/1
-- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/2
-- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/3
-- [ ] https://github.com/Kybton/go-gin-clean-architecture/issues/4
+- [ ] [Add Basic CRUD](https://github.com/Kybton/go-gin-clean-architecture/issues/1)
+- [ ] [Add Validations](https://github.com/Kybton/go-gin-clean-architecture/issues/2)
+- [ ] [Add Unit Testing](https://github.com/Kybton/go-gin-clean-architecture/issues/3)
+- [ ] [Add Docs for Project structure](https://github.com/Kybton/go-gin-clean-architecture/issues/4)
 
 ## API Documentation
 
