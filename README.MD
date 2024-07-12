@@ -26,6 +26,7 @@ I am planning to make a CLI wrapper for this project where you can create a new 
 - [dig](https://github.com/uber-go/dig) - A reflection based dependency injection toolkit for Go.
 - [GORM](https://gorm.io/index.html) - The fantastic ORM library for Golang
 - [BurntSushi/toml](https://github.com/BurntSushi/toml) - TOML parser for Golang with reflection.
+- [validator](https://github.com/go-playground/validator) - Go Struct and Field validation, including Cross Field, Cross Struct, Map, Slice and Array diving
 
 ## TODOs
 

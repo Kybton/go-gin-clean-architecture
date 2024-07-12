@@ -1,11 +1,14 @@
 package models
 
 import (
-	"gorm.io/gorm"
+	"time"
 )
 
 type Person struct {
-	gorm.Model
-	FirstName string `gorm:"not null"`
-	LastName  string `gorm:"not null"`
+	ID        int       `gorm:"primaryKey" json:"id"`
+	FirstName string    `gorm:"not null" json:"first_name"`
+	LastName  string    `gorm:"not null" json:"last_name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	DeletedAt time.Time `gorm:"default:null" json:"deleted_at"`
 }

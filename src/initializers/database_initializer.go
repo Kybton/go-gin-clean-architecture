@@ -2,7 +2,6 @@ package initializers
 
 import (
 	"fmt"
-	"log"
 
 	personModels "github.com/kybton/go-gin-clean-architecture/src/app/modules/person/models"
 
@@ -18,8 +17,6 @@ type InitDbDep struct {
 
 func InitDatabase(deps InitDbDep) {
 	fmt.Println("RUNNING DATABASE MIGRATE")
-
-	log.Println(deps.DB)
 
 	deps.DB.AutoMigrate(
 		&personModels.Person{},
