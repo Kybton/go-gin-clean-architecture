@@ -1,4 +1,4 @@
-# Clean Architecture Implementation in
+# Clean Architecture Implementation in Go
 
 <div align="center">
     <img src="./images/golang_logo.png" alt="drawing" width="300"/>
