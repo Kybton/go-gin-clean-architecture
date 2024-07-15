@@ -1,8 +1,6 @@
 package services
 
 import (
-	"log"
-
 	"github.com/kybton/go-gin-clean-architecture/src/app/modules/person/models"
 	"github.com/kybton/go-gin-clean-architecture/src/app/modules/person/repositories"
 	"go.uber.org/dig"
@@ -28,19 +26,12 @@ func (ps *PersonService) List() {
 
 }
 
-func (ps *PersonService) GetById() {
-
+func (ps *PersonService) GetById(id uint) (*models.Person, error) {
+	return ps.personRepository.Get(id)
 }
 
 func (ps *PersonService) Create(person *models.Person) (*models.Person, error) {
-	_, err := ps.personRepository.Create(person)
-
-	if err != nil {
-		log.Fatal("Error occured")
-		return person, err
-	}
-
-	return person, nil
+	return ps.personRepository.Create(person)
 }
 
 func (ps *PersonService) Delete() {

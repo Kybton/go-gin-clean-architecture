@@ -13,7 +13,10 @@ func InternalServerErrorHandler(c *gin.Context, err any) {
 	goErr := errors.Wrap(err, 2)
 	c.AbortWithStatusJSON(
 		http.StatusInternalServerError,
-		dtos.BaseResponse{Message: "Internal Server Error."},
+		dtos.BaseResponse{
+			Title:   "Server Error",
+			Message: "Internal Server Error.",
+		},
 	)
 	fmt.Println(goErr)
 }

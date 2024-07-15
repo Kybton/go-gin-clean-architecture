@@ -17,6 +17,7 @@ func (ctrl *RootController) Root(c *gin.Context) {
 	c.JSON(
 		http.StatusOK,
 		dtos.BaseResponse{
+			Title:   "Success",
 			Message: "Server is up.",
 		},
 	)

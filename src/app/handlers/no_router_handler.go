@@ -13,7 +13,10 @@ func NoRouteHandler() gin.HandlerFunc {
 		// Responding with the custom struct so that api consumers can handle with model
 		c.AbortWithStatusJSON(
 			http.StatusNotFound,
-			dtos.BaseResponse{Message: "Not Found."},
+			dtos.BaseResponse{
+				Title:   "Error",
+				Message: "Not Found.",
+			},
 		)
 	}
 }
